@@ -11,7 +11,6 @@
 		<meta name="keywords" content="aokmikey,AoKMiKeY,aokmikeyv2,mikey,se7ensins aokmikey,cod5,cod4,cod 5 modding,cod 4 modding,aokmikey youtube,aokmikey se7ensins,agreedbog,perfectionist mod menu,design,development,raid-gaming,raid gaming,raid-server,raid servers">
 	</head>
 	<body <?= isset( $_GET['p'] ) ? 'class="discord"' : '' ?> >
-
 		<?php if( !isset( $_GET['p'] ) ): ?>
 		<div id="content">
 			<header>
@@ -48,6 +47,5 @@
 				</div>
 			</div>
 		<?php endif; ?>
-
 	</body>
 </html>
