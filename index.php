@@ -38,7 +38,9 @@
 				?>
 			</footer>
 		</div>
+
 		<?php else: ?>
+			
 			<div class="d-container">
 				<div class="d-box">
 					<h2>Add me on Discord</h2>
