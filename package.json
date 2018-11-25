@@ -1,0 +1,29 @@
+{
+  "name": "mikey",
+  "version": "1.0.0",
+  "description": "My contact hub for my MiKeY alias and hopefully to be more.",
+  "main": "./app/core.js",
+  "dependencies": {
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelHillcox/MiKeY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelHillcox/MiKeY/issues"
+  },
+  "homepage": "https://github.com/MichaelHillcox/MiKeY#readme"
+}
