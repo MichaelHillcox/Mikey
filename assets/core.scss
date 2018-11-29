@@ -1,3 +1,151 @@
+$primary-bluple: #773DFE;
+
+html, body {
+	margin: 0;
+	padding: 0;
+
+	background: $primary-bluple;
+	color: #525252;
+
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+
+	width: 100%;
+	height: 100%;
+
+	position: relative;
+}
+
+%subheading {
+	display: block;
+	font-style: italic;
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 100;
+	font-size: .55em;
+	color: rgba(#525252, .7);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	position: relative;
+
+	&:hover {
+		&::before {
+			height: 100%;
+			background-color: #FFDE7E;
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		height: 4px;
+		width: 100%;
+		background-color: rgba($primary-bluple, .2);
+		left: 0;
+
+		transition: height .3s ease-in-out, background-color .3s ease;
+		z-index: -1;
+	}
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	height: 100%;
+
+	main.main {
+		max-width: 480px;
+		width: 95%;
+		
+		background: white url('images/heading.png') no-repeat top center;
+		border-radius: 4px;
+
+		padding: 0em 5em 5em;
+		box-sizing: border-box;
+		position: relative;
+
+		box-shadow: 0 6px 13px -3px rgba(black, .27);
+		
+		.logo {
+			background: $primary-bluple url('images/logo.png') no-repeat center center;
+			background-size: 64px;
+			width: 150px;
+			height: 150px;
+			position: absolute;
+			top: -75px;
+			left: 50%;
+			border-radius: 50%;
+			box-shadow: 0 5px 5px rgba(black, .12);
+			transform: translateX(-50%);
+		}
+		
+		header {
+			margin-top: 11em;
+
+			h1 {
+				margin: 0;
+				font-size: 2.3em;
+				color: black;
+				margin-bottom: 1em;
+
+				small {
+					@extend %subheading;
+				}
+			}
+		}
+
+		.body {
+			.subtitle {
+				@extend %subheading;
+				font-size: 1em;
+				margin-top: 3em;
+				margin-bottom: 1em;
+			}
+
+			p {
+				margin-top: 0;
+				line-height: 2em;
+				z-index: 1;
+				position: relative;
+			}
+
+			p:first-child {
+				margin-bottom: 0;
+			}
+
+			.links {
+				a {
+					z-index: 1;
+					position: relative;
+					margin-right: 0.2em;
+					cursor: pointer;
+
+					&:not(:last-child)::after {
+						content: ',';
+					}
+				}
+			}
+		}
+	}
+}
+
+footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: rgba(black, .5);
+
+	text-align: center;
+}
+
 /**
 <div class="wrapper">
 			<main class="main">
@@ -10,7 +158,7 @@
 						<p>Modder of <a href="#">CoD5</a>, Maintainer of <a href="">ZombieModding</a>,</p>
 						<p>Developer, Designer, Creator.</p>
 
-						<small class="subtile">Socials</small>
+						<small class="subtitle">Socials</small>
 						<div class="links">
 							<a data-email>Email</a>
 							<a data-discord>Discord</a>
@@ -27,26 +175,3 @@
 			<p>&copy; 2018 - MiKeY</p>
 		</footer>
 */
-
-$primary-blural: #773DFE;
-
-html, body {
-	margin: 0;
-	padding: 0;
-
-	background: $primary-blural;
-	color: black;
-
-	font-family: 'Lato', sans-serif;
-	font-weight: 400;
-	font-size: 13px;
-}
-
-.wrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	width: 100%;
-	height: 100%;
-}
