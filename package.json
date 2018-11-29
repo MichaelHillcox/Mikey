@@ -1,0 +1,30 @@
+{
+  "name": "mikey",
+  "version": "1.0.0",
+  "description": "My contact hub for my MiKeY alias and hopefully to be more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelHillcox/MiKeY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelHillcox/MiKeY/issues"
+  },
+  "homepage": "https://github.com/MichaelHillcox/MiKeY#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^4.0.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^4.0.2"
+  }
+}

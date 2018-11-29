@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>MiKeY</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="app/core.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
