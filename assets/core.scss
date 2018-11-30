@@ -130,6 +130,10 @@ a {
 					&:not(:last-child)::after {
 						content: ',';
 					}
+
+					&.discord::before { background-color: rgba(#7289DA, .21); }
+					&.twitter::before { background-color: rgba(#1DA1F2, .21); }
+					&.youtube::before { background-color: rgba(#FF0000, .21); }
 				}
 			}
 		}
@@ -145,33 +149,3 @@ footer {
 
 	text-align: center;
 }
-
-/**
-<div class="wrapper">
-			<main class="main">
-				<div class="logo"></div>
-				<section>
-					<header>
-						<h1><small>Hey, I'm</small> MiKeY</h1>
-					</header>
-					<div class="body">
-						<p>Modder of <a href="#">CoD5</a>, Maintainer of <a href="">ZombieModding</a>,</p>
-						<p>Developer, Designer, Creator.</p>
-
-						<small class="subtitle">Socials</small>
-						<div class="links">
-							<a data-email>Email</a>
-							<a data-discord>Discord</a>
-							<a href="#">Github</a>
-							<a href="#">Twitter</a>
-							<a href="#">Youtube</a>
-							<a href="#">Steam</a>
-						</div>
-					</div>
-				</section>
-			</main>
-		</div>
-		<footer>
-			<p>&copy; 2018 - MiKeY</p>
-		</footer>
-*/
