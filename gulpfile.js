@@ -41,7 +41,8 @@ gulp.task('scss', e => gulp
 gulp.task('js', e => gulp
 	.src(config.js.main)
 	.pipe(babel({presets: ['@babel/env'], minified: true}))
-	.pipe(gulp.dest(config.js.output)));
+	.pipe(gulp.dest(config.js.output))
+	.pipe(livereload()));
 
 gulp.task('watch', e => {
     livereload.listen();
