@@ -8,9 +8,9 @@ const gulp = require('gulp'),
 
 const config = {
     scss: {
-        main: ['assets/core.scss'],
-        files: "assets/**/*.scss",
-        output: "./assets/",
+        main: ['src/core.scss'],
+        files: "src/**/*.scss",
+        output: "assets/",
         compileOptions: {
             errLogToConsole: true,
             outputStyle: 'compressed'
@@ -20,8 +20,9 @@ const config = {
         }
 	},
 	js: {
-		main: ['assets/core.js'],
-		output: './assets/'
+		main: ['src/core.js'],
+		files: 'src/**/*.js',
+		output: 'assets/'
 	},
     watch: ["**/*.php"]
 }
@@ -39,16 +40,12 @@ gulp.task('scss', e => gulp
 
 gulp.task('js', e => gulp
 	.src(config.js.main)
-	.pipe(babel({presets: ['@babel/env']}))
-	.pipe(minify({
-		ext:{
-            min:'.min.js'
-        },
-	}))
+	.pipe(babel({presets: ['@babel/env'], minified: true}))
 	.pipe(gulp.dest(config.js.output)));
 
 gulp.task('watch', e => {
     livereload.listen();
     gulp.watch(config.scss.files, ['scss']);
+    gulp.watch(config.js.files, ['js']);
     gulp.watch(config.watch, livereload.reload);
 })
