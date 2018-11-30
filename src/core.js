@@ -4,7 +4,6 @@
 class appModal {
 	constructor() {
 		this.triggers = document.querySelectorAll('[data-trigger]');
-		
 		this.triggers.forEach(x => x.addEventListener('click', this.openEvent.bind(this, x)));
 
 		this.setupModals();
