@@ -1,10 +1,9 @@
-const gulp = require('gulp'),
-	sass = require('gulp-sass'),
+const {series, src, dest, watch} = require('gulp');
+
+const sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	livereload = require('gulp-livereload'),
-	babel = require('gulp-babel'),
-	concat = require('gulp-concat'),
-	minify = require('gulp-minify');
+	babel = require('gulp-babel');
 
 const config = {
     scss: {
@@ -16,7 +15,7 @@ const config = {
             outputStyle: 'compressed'
         },
         prefixOptions: {
-            browsers: ['last 2 versions']
+            overrideBrowserslist: ['last 2 version']
         }
 	},
 	js: {
@@ -27,26 +26,35 @@ const config = {
     watch: ["**/*.php"]
 }
 
-// Normal tasks
-gulp.task('default', ['scss', 'js', 'watch'])
+const scss = cb => {
+	src(config.scss.main)
+		.pipe(sass(config.scss.compileOptions).on('error', sass.logError))
+		.pipe(autoprefixer(config.scss.prefixOptions))
+		.pipe(dest(config.scss.output))
+		.pipe(livereload())
 
-gulp.task('scss', e => gulp
-	.src(config.scss.main)
-	.pipe(sass(config.scss.compileOptions).on('error', sass.logError))
-	.pipe(autoprefixer(config.scss.prefixOptions))
-	.pipe(gulp.dest(config.scss.output))
-	.pipe(livereload())
-);
+	cb();
+};
 
-gulp.task('js', e => gulp
-	.src(config.js.main)
-	.pipe(babel({presets: ['@babel/env'], minified: true}))
-	.pipe(gulp.dest(config.js.output))
-	.pipe(livereload()));
+const js = cb => {
+	src(config.js.main)
+		.pipe(babel({presets: ['@babel/env'], minified: true}))
+		.pipe(dest(config.js.output))
+		.pipe(livereload());
 
-gulp.task('watch', e => {
-    livereload.listen();
-    gulp.watch(config.scss.files, ['scss']);
-    gulp.watch(config.js.files, ['js']);
-    gulp.watch(config.watch, livereload.reload);
-})
+	cb();
+}
+
+const watchTask = cb => {
+	
+	livereload.listen();
+    watch(config.scss.files, scss);
+    watch(config.js.files, js);
+	watch(config.watch, livereload.reload);
+	
+	cb();
+};
+
+exports.js = js
+exports.scss = scss 
+exports.default = series(scss, js, watchTask);
